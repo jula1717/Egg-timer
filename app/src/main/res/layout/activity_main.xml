@@ -2,7 +2,6 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/imgEgg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".MainActivity">
@@ -16,44 +15,53 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/imageView"
+        android:id="@+id/imgEgg"
         android:layout_width="356dp"
         android:layout_height="560dp"
+        android:scaleType="fitCenter"
+        android:scaleX="1.2"
+        android:scaleY="1.2"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.49"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/timeBar"
-        tools:srcCompat="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.56"
+        tools:srcCompat="@drawable/egg" />
 
     <Button
         android:id="@+id/btnStart"
         android:layout_width="160dp"
         android:layout_height="67dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="500dp"
         android:text="Start"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:layout_editor_absoluteX="125dp" />
+        app:layout_constraintBottom_toBottomOf="@+id/imgEgg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgEgg" />
 
     <Button
         android:id="@+id/btnStop"
         android:layout_width="160dp"
         android:layout_height="67dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="500dp"
         android:text="Stop"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
-        app:layout_constraintTop_toTopOf="@+id/imageView"
-        tools:layout_editor_absoluteX="125dp" />
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="@+id/imgEgg"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/imgEgg" />
 
     <TextView
         android:id="@+id/txtTimer"
-        android:layout_width="197dp"
-        android:layout_height="126dp"
-        android:layout_marginBottom="200dp"
+        android:layout_width="206dp"
+        android:layout_height="63dp"
+        android:layout_marginBottom="100dp"
+        android:text="0:00"
         android:textAlignment="center"
         android:textSize="40sp"
-        app:layout_constraintBottom_toBottomOf="@+id/imageView"
+        app:layout_constraintBottom_toBottomOf="@+id/imgEgg"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/imageView" />
+        app:layout_constraintTop_toTopOf="@+id/imgEgg" />
 </androidx.constraintlayout.widget.ConstraintLayout>
