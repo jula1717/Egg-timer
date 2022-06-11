@@ -33,10 +33,7 @@ public class MainActivity extends AppCompatActivity {
         timerBar.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
             public void onProgressChanged(SeekBar seekBar, int i, boolean b) {
-                int minutes = (int) i/60;
-                int seconds = i%60;
-                String sSeconds=seconds<10?"0" + Integer.toString(seconds):Integer.toString(seconds);
-                txtTimer.setText(Integer.toString(minutes)+":"+sSeconds);
+                updateTimer(i);
             }
 
             @Override
@@ -51,28 +48,35 @@ public class MainActivity extends AppCompatActivity {
         });
 
 
-//        btnStart.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                new CountDownTimer(10000,1000)
-//                {
-//
-//                    @Override
-//                    public void onTick(long l) {
-//                        //countdown is counting down (every second - first argument)
-//                        System.out.println("Seconds left: "+String.valueOf(l/1000));
-//                    }
-//
-//                    @Override
-//                    public void onFinish() {
-//                        //counter is finished! (after 10 seconds - second argment)
-//                        System.out.println("Countdown timer finished");
-//
-//                    }
-//                }.start();
-//            }
-//        });
+        btnStart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                new CountDownTimer(timerBar.getProgress()*1000,1000)
+                {
+
+                    @Override
+                    public void onTick(long l) {
+                       updateTimer((int)l/1000);
+                    }
+
+                    @Override
+                    public void onFinish() {
+                        //counter is finished! (after 10 seconds - second argument)
+                        System.out.println("Countdown timer finished");
+                        //sound maybe??
+
+                    }
+                }.start();
+            }
+        });
 
 
+    }
+
+    private void updateTimer(int secondsLeft) {
+        int minutes = (int) secondsLeft /60;
+        int seconds = secondsLeft %60;
+        String sSeconds=seconds<10?"0" + Integer.toString(seconds):Integer.toString(seconds);
+        txtTimer.setText(Integer.toString(minutes)+":"+sSeconds);
     }
 }
